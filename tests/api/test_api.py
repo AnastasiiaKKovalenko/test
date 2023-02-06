@@ -1,17 +1,14 @@
-class User:
+import pytest
 
-    def __init__(self) -> None:
-        self.name = "Anastasiia"
-        self.second_name = "Kovalenko"
-
-user = User()
-
-def test_remove_name():
+@pytest.mark.change
+def test_remove_name(user):
     user.name = ''
     assert user.name == ''
 
-def test_name():
-    assert user.name == "Anastasiia"
+@pytest.mark.check
+def test_name(user):
+    assert user.name == 'Anastasia'
 
-def test_name():
-    assert user.second_name == "Kovalenko"
+@pytest.mark.check
+def test_second_name(user):
+    assert user.second_name == 'Kovalenko'
